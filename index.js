@@ -1,22 +1,34 @@
-const express =require("express")
+const express = require("express")
+const mongoose = require("mongoose");
+const path =require('path')
 
-const app =express();
+const app = express();
 
 
-app.get("/",(req,res)=>{
+ app.set("views",path.join(__dirname,"views"))
+ app.set("view engine","ejs");
+
+
+
+
+main().then(() => {
+    console.log("connected")
+})
+
+main().catch(err => {
+    console.log(err)
+})
+
+async function main() {
+    await mongoose.connect('mongodb://127.0.0.1:27017/whatsapp');
+}
+
+
+
+app.get("/", (req, res) => {
     res.send("root work")
 })
 
-
-
-
-
-
-
-
-
-
-
-app.listen(8100,()=>{
+app.listen(8100, () => {
     console.log("server on port 6000")
 })
