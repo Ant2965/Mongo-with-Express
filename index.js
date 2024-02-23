@@ -1,12 +1,12 @@
 const express = require("express")
 const mongoose = require("mongoose");
-const path =require('path')
-const chat =require("./models/chat.js")
+const path = require('path')
+const chat = require("./models/chat.js")
 const app = express();
 
 
- app.set("views",path.join(__dirname,"views"))
- app.set("view engine","ejs");
+app.set("views", path.join(__dirname, "views"))
+app.set("view engine", "ejs");
 
 
 
@@ -24,16 +24,12 @@ async function main() {
 }
 
 
+//Index 
 
-let chat1 =new chat({
-    from: "neha",
-    to: "priya",
-    msg:"send me new logo",
-    created_at: new Date()
-});
-
-chat1.save().then(res=>{
-    console.log(res)
+app.get("/chats",async(req,res)=>{
+    let chats= await chat.find()
+    console.log(chats)
+    res.render("index.ejs",{chats})
 })
 
 
