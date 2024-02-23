@@ -8,9 +8,14 @@
   <body>
     <h3>All Chats!</h3>
 
+    <form action="/chats/new" method="GET">
+        <button>New Chat</button>
+        <br>
+    </form>
+<br>
     <%for(let chat of chats){%>
     <div class="chat">
-      <p>From : <%= chat.from%></p>
+      <p>From : <%= chats.from%></p>
 
       <div class="msg">
         <p><%= chats.msg%></p>
