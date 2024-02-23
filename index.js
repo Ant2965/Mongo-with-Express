@@ -36,11 +36,6 @@ app.get("/chats",async(req,res)=>{
 
 
 
-
-
-
-
-
 app.get("/", (req, res) => {
     res.send("root work")
 })

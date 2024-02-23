@@ -8,15 +8,15 @@
   <body>
     <h3>All Chats!</h3>
 
-    <%for(let chat of Chats){%>
+    <%for(let chat of chats){%>
     <div class="chat">
       <p>From : <%= chat.from%></p>
 
       <div class="msg">
-        <p><%= chat.msg%></p>
+        <p><%= chats.msg%></p>
       </div>
 
-      <p>recieved by : <%= chat.to%></p>
+      <p>recieved by : <%= chats.to%></p>
     </div>
     <%}%>
   </body>
